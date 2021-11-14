@@ -68,7 +68,13 @@ def open_file():
     global model_time
 
     model_time = 0.0
-    in_filename = "solar_system.txt"
+    in_filename = input("Введите название файла\n")
+    try:
+        space_objects = read_space_objects_data_from_file(in_filename)
+    except FileNotFoundError:
+        print("Такого файла не существует!\n Попробуйте снова\n")
+        open_file()
+        return
     space_objects = read_space_objects_data_from_file(in_filename)
     max_distance = max([max(abs(obj.obj.x), abs(obj.obj.y)) for obj in space_objects])
     calculate_scale_factor(max_distance)
