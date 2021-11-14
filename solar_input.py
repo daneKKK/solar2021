@@ -56,7 +56,7 @@ def parse_star_parameters(line, star):
     """
     parametrs = line.split()
     star.R = float(parametrs[1])
-    star.color = float(parametrs[2])
+    star.color = parametrs[2]
     star.m = float(parametrs[3])
     star.x = float(parametrs[4])
     star.y = float(parametrs[5])
@@ -84,7 +84,7 @@ def parse_planet_parameters(line, planet):
     """
     parametrs = line.split()
     planet.R = float(parametrs[1])
-    planet.color = float(parametrs[2])
+    planet.color = parametrs[2]
     planet.m = float(parametrs[3])
     planet.x = float(parametrs[4])
     planet.y = float(parametrs[5])
@@ -115,8 +115,8 @@ def write_space_objects_data_to_file(output_filename, space_objects):
                 line += 'Star '
             elif obj.type == "planet":
                 line += 'Planet '
-            line += str(obj.r) + '' + str(obj.color) + '' + str(obj.m) + '' + str(obj.x) + '' + str(obj.y) + ''
-            line += str(obj.Vx) + '' + str(obj.Vy)
+            line += str(obj.r) + ' ' + str(obj.color) + ' ' + str(obj.m) + ' ' + str(obj.x) + ' ' + str(obj.y) + ' '
+            line += str(obj.Vx) + ' ' + str(obj.Vy) + '\n'
             print(out_file, line)
 
 
